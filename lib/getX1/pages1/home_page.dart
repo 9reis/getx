@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/getX1/data/repositories/github_repository.dart';
+import 'package:getx/getX1/pages1/detalhes/detalhes_page.dart';
 import 'package:getx/getX1/pages1/home_controller.dart';
 
 class HomePage1 extends StatefulWidget {
@@ -70,7 +71,9 @@ class _HomePage1State extends State<HomePage1> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          Get.to(DetalhesPage(username: user.login));
+                        },
                       );
                     },
                   );

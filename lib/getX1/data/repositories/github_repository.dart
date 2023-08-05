@@ -31,4 +31,17 @@ class GithubRepository {
     }
     return users;
   }
+
+  // Pega os dados do usuário ao clicar
+  Future<GithubUserModel> getGithubUser({required String username}) async {
+    final result = await dio.get('https://api.github.com/$username');
+
+    late GithubUserModel githubUser;
+
+    if (result.statusCode == 200) {
+      // Onde está os dados do user
+      githubUser = GithubUserModel.fromMap(result.data);
+    }
+    return githubUser;
+  }
 }
