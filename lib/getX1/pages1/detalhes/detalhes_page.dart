@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:getx/getX1/data/repositories/github_repository.dart';
 import 'package:getx/getX1/pages1/detalhes/detalhes_controller.dart';
+import 'package:get/instance_manager.dart';
+import 'package:getx/getX1/pages1/detalhes/detilhes_biding.dart';
 
 class DetalhesPage extends StatefulWidget {
   final String username;
@@ -18,11 +20,8 @@ class _DetalhesPageState extends State<DetalhesPage> {
   @override
   void initState() {
     super.initState();
-    _controller = DetalhesController(
-      repository: GithubRepository(
-        dio: Dio(),
-      ),
-    );
+    setUpDetalhes();
+    _controller = Get.find<DetalhesController>();
     _controller.getGithubUser(username: widget.username);
   }
 

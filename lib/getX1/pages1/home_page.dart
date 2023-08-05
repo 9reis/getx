@@ -1,9 +1,9 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/getX1/data/repositories/github_repository.dart';
 import 'package:getx/getX1/pages1/detalhes/detalhes_page.dart';
+import 'package:getx/getX1/pages1/home_biding.dart';
 import 'package:getx/getX1/pages1/home_controller.dart';
+import 'package:get/instance_manager.dart';
 
 class HomePage1 extends StatefulWidget {
   const HomePage1({super.key});
@@ -19,12 +19,9 @@ class _HomePage1State extends State<HomePage1> {
   @override
   void initState() {
     super.initState();
-    _controller = HomeController(
-      repository: GithubRepository(
-        dio: Dio(),
-      ),
-    );
-    // Chama a func que está dentro do controller
+    setUpHome();
+    // Get do Instance Manager
+    _controller = Get.find<HomeController>();
     _controller.getGithubUsers();
   }
 
