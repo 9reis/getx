@@ -1,7 +1,5 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:getx/getX1/data/repositories/github_repository.dart';
 import 'package:getx/getX1/pages1/detalhes/detalhes_controller.dart';
 import 'package:get/instance_manager.dart';
 import 'package:getx/getX1/pages1/detalhes/detilhes_biding.dart';
@@ -37,7 +35,7 @@ class _DetalhesPageState extends State<DetalhesPage> {
             ? Center(
                 child: CircularProgressIndicator(),
               )
-            : _controller.githubUser! == null // Verifica se o usuário é nulo
+            : _controller.githubUser == null // Verifica se o usuário é nulo
                 ? Center(child: Text('Usuário não encontrado'))
                 : _buildUserInfo();
       }),
